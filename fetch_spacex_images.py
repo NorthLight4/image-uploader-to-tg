@@ -22,14 +22,10 @@ def main():
     parser = argparse.ArgumentParser(
         description='Программа, которая загружает фотографии запуска ракет spaceX по ID запуска. По умолчанию скачивает фото последнего запуска (при их наличии)'
     )
-    parser.add_argument('-launch_id', help='ID запуска')
+    parser.add_argument('-launch_id', help='ID запуска', type=str, default='latest')
     args = parser.parse_args()
-    launch_id = args.launch_id
 
-    if launch_id is None:
-        fetch_spacex_launch('latest')
-    else:
-        fetch_spacex_launch(launch_id)
+    fetch_spacex_launch(args.launch_id)
 
 
 if __name__ == "__main__":

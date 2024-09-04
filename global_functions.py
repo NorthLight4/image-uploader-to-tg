@@ -11,6 +11,14 @@ def download_image(image_url, image_path):
         file.write(response.content)
 
 
+def download_image_with_payload(image_url, payload, image_path):
+    response = requests.get(image_url, params=payload)
+    response.raise_for_status()
+
+    with open(image_path, 'wb') as file:
+        file.write(response.content)
+
+
 def get_file_extension_from_url(url):
     path = urlparse(url).path
     extension = splitext(path)[-1]

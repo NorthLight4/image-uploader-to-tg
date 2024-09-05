@@ -4,7 +4,7 @@ import requests
 import datetime as dt
 from pathlib import Path
 from dotenv import load_dotenv
-from global_functions import download_image_with_payload
+from global_functions import download_image
 
 
 def fetch_nasa_epic(api_key, count):
@@ -28,7 +28,7 @@ def fetch_nasa_epic(api_key, count):
         payload = {
             'api_key': api_key
         }
-        download_image_with_payload(image_url, payload, f'images/nasa_epic_{image_num}.png')
+        download_image(image_url, f'images/nasa_epic_{image_num}.png', payload)
 
 
 def main():

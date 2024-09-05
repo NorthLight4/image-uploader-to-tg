@@ -3,16 +3,11 @@ from os.path import splitext
 from urllib.parse import urlparse
 
 
-def download_image(image_url, image_path):
-    response = requests.get(image_url)
-    response.raise_for_status()
-
-    with open(image_path, 'wb') as file:
-        file.write(response.content)
-
-
-def download_image_with_payload(image_url, payload, image_path):
-    response = requests.get(image_url, params=payload)
+def download_image(image_url, image_path, payload=None):
+    if payload:
+        response = requests.get(image_url, params=payload)
+    else:
+        response = requests.get(image_url)
     response.raise_for_status()
 
     with open(image_path, 'wb') as file:

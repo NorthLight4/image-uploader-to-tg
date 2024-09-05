@@ -1,7 +1,7 @@
 import requests
 import argparse
 from pathlib import Path
-from global_functions import download_image
+from download_tools import download_image
 
 
 def fetch_spacex_launch(launch_id):

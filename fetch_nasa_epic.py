@@ -4,7 +4,7 @@ import requests
 import datetime as dt
 from pathlib import Path
 from dotenv import load_dotenv
-from global_functions import download_image
+from download_tools import download_image
 
 
 def fetch_nasa_epic(api_key, count):

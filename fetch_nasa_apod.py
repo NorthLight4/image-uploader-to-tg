@@ -3,7 +3,7 @@ import requests
 import argparse
 from pathlib import Path
 from dotenv import load_dotenv
-from global_functions import get_file_extension_from_url, download_image
+from download_tools import get_file_extension_from_url, download_image
 
 
 def fetch_nasa_apod(api_key, count):

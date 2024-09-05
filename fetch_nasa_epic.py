@@ -15,15 +15,15 @@ def fetch_nasa_epic(api_key, count):
 
     response = requests.get(api_url, params=payload)
     response.raise_for_status()
-    response_in_json = response.json()
+    response_data = response.json()
 
     for image_num in range(count):
-        image_date = response_in_json[image_num]['date']
+        image_date = response_data[image_num]['date']
         date_time = dt.datetime.fromisoformat(image_date)
         formatted_date = date_time.strftime("%Y-%m-%d")
         year, month, day = formatted_date.split('-')
 
-        image = response_in_json[image_num]['image']
+        image = response_data[image_num]['image']
         image_url = f'https://api.nasa.gov/EPIC/archive/natural/{year}/{month}/{day}/png/{image}.png'
         payload = {
             'api_key': api_key
